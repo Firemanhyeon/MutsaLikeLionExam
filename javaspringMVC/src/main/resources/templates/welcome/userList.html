@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>회원목록</h1>
+<table>
+    <tr>
+        <th>이름</th>
+        <th>권한</th>
+    </tr>
+    <tr th:each="user: ${userList}">
+        <td th:text="${user.name}"></td>
+        <td>
+            <span th:if="${user.checkAuth}">관리자</span>
+            <span th:unless="${user.checkAuth}">일반회원</span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

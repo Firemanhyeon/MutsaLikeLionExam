@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1.
+      const numbers = [1, 2, 3, 4, 5];
+      numbers.forEach((element) => {
+        console.log(element);
+      });
+      console.log("=============");
+      for (let i = 0; i < numbers.length; i++) {
+        console.log(numbers[i]);
+      }
+      console.log("=======================");
+      //2.
+      const person = {
+        name: "홍길동",
+        age: 25,
+        email: "dsafa@naver.com",
+      };
+      for (per in person) {
+        console.log(`${per}: ${person[per]}`);
+      }
+      console.log("=======================");
+      console.log(Object.entries(person));
+
+      //3
+      console.log("=======================");
+      const numbers1 = [10, 36, 54, 89, 12];
+      let max = 0;
+      for (num of numbers1) {
+        if (max < num) {
+          max = num;
+        }
+      }
+      console.log(max);
+      //4
+      console.log("=======================");
+      const users = [
+        { name: "Alice", age: 25 },
+        { name: "Bob", age: 30 },
+        { name: "Charlie", age: 28 },
+        { name: "Dave", age: 35 },
+      ];
+      let older = [];
+      for (usr of users) {
+        if (usr.age >= 30) {
+          older.push(usr);
+        }
+      }
+      console.log(older);
+    </script>
+  </body>
+</html>

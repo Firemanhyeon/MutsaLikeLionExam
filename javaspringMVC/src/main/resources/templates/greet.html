@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>hello greet</h1>
+<h1 th:text="${name}+'!!'+${age}">hello</h1>
+<!--${} = el 표기법 -->
+<div th:include="common/footer :: footer">
+
+</div>
+</body>
+</html>

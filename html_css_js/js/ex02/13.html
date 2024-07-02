@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //foreach - Array의 내장함수
+      const superheroes = [
+        "아이언맨",
+        "캡틴 아메리카",
+        "토르",
+        "닥터 스트레인지",
+      ];
+      //화살표함수
+      superheroes.forEach((el) => console.log(el));
+
+      //콜백함수
+      const hi = function (name) {
+        console.log("hi" + name);
+      };
+      superheroes.forEach(hi); //콜백함수
+
+      const users = [
+        { name: "Alice", age: 25 },
+        { name: "Bob", age: 30 },
+        { name: "Charlie", age: 28 },
+        { name: "Dave", age: 35 },
+      ];
+      //일반적인 foreach 문
+      users.forEach(function (name) {
+        console.log(name);
+      });
+
+      //map -Array의 내장함수
+      //배열안의 각 원소를 변환 할 때 사용된다.
+      //함수 자체에서 반복하면서 해당함수안의 값을 변환해 새로운배열에 담는다.
+
+      //원소들 각각 제곱하여 새로운배열에 넣어야한다.
+      const array = [1, 2, 3, 4, 5, 6, 7, 8];
+      const squared = [];
+      for (arr of array) {
+        squared.push(arr * arr);
+      }
+      console.log(squared);
+
+      //map을 이용한 문제해결
+
+      const square = function sq(n) {
+        return n * n;
+      };
+      const squaredd = array.map(square);
+      console.log(squaredd);
+      //다른형태
+      const sq = array.map((n) => n * n);
+      console.log(sq);
+      //다른형태
+      const squ = array.map(function (el) {
+        return el * el;
+      });
+      console.log(squ);
+
+      //indexOf
+      //해당 값 인덱스번호 반환
+      //배열일때 사용
+
+      //배열이 가진값이 객체일때는
+      //findIndex사용
+      //해당 인덱스 반환
+      const todos = [
+        {
+          id: 1,
+          text: "자바스크립트 입문",
+          done: true,
+        },
+        {
+          id: 2,
+          text: "함수 배우기",
+          done: true,
+        },
+        {
+          id: 3,
+          text: "객체와 배열 배우기",
+          done: true,
+        },
+        {
+          id: 4,
+          text: "배열 내장함수 배우기",
+          done: false,
+        },
+      ];
+      const index = todos.findIndex(function (todo) {
+        return todo.id === 3;
+      });
+      console.log(index);
+
+      //find 함수
+      //findIndex와 똑같은데 find는 인덱스를반환하는게아니라 찾아낸 값 자체를 반환한다.
+
+      //filter 특정조건을 만족하는 값만 따로 추출
+      //done이 false인 값만 새로운배열에 추출
+      const arr5 = todos.filter((todo) => todo.done === false);
+      console.log(arr5);
+      //다른형태
+      const arrt = todos.filter(function (todo) {
+        return todo.done === false;
+      });
+      console.log(arrt);
+
+      //splice
+      //매개변수 : 지울 인덱스 , 몇개지울건지
+      todos.splice(0, 2);
+      console.log(todos);
+
+      //slice
+      //매개변수 : 1부터시작해서 3 전까지
+      const numbers = [1, 2, 3, 4, 5];
+      const num = numbers.slice(1, 3);
+      console.log(num);
+
+      //shift와 pop
+      //shift는 배열의 첫번째요소를 추출해준다.(원소삭제)
+      //pop은 배열의 마지막요소를 추출해준다.
+
+      //unshift
+      //맨앞에 새 요소 추가
+
+      //concat
+      //여러개의 배열을 하나의 배열로 합쳐준다
+      //arr1.concat(arr2);
+
+      //join
+      //배열안의 값들을 문자열로 변환해준다
+
+      //reduce
+      //배열안의 총합구하는예제
+      //매개변수 : 더할 총합변수 , 더할 수 => 더하는식 , 변수의초기값
+      let sum = array.reduce((num, current) => num + current, 0);
+      console.log(sum);
+    </script>
+  </body>
+</html>

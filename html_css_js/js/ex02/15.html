@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Animal(type, name, sound) {
+        console.log(this.type);
+        console.log(type);
+        this.type = type;
+        this.name = name;
+        this.sound = sound;
+        this.say = function () {
+          console.log(this.sound);
+        };
+      }
+      //프로토타입 공간에 say를 정의한다 (해당객체에 아무것도 선언되어있지않으면 프로토타입에 있는 공유값을 쓴다)
+      Animal.prototype.say = function () {
+        console.log(this.sound);
+      };
+      Animal.prototype.sharedValue = 1;
+
+      const dog = new Animal("개", "멍멍이", "멍멍");
+      const cat = new Animal("고양이", "야옹", "야옹");
+
+      dog.say();
+      cat.say();
+
+      console.log(dog.sharedValue);
+      console.log(cat.sharedValue);
+      //프로토타입에도 값이 있지만 새로 정의해주면 해당값이 출력된다.
+      cat.sharedValue = 2;
+      console.log(dog.sharedValue);
+      console.log(cat.sharedValue);
+
+      Animal.prototype.say.call(cat);
+      console.log(cat.say.call);
+    </script>
+  </body>
+</html>

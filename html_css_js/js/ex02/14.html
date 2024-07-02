@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //자바스크립트의 객체생성자 : 함수를 통해 새로운 객체를 만들고 그안에 넣고싶은 값 또는 함수를 구현할 수 있게 해준다
+      function Animal(type, name, sound) {
+        console.log(this.type);
+        console.log(type);
+        this.type = type;
+        this.name = name;
+        this.sound = sound;
+        this.say = function () {
+          console.log(this.sound);
+        };
+      }
+
+      const dog = new Animal("개", "멍멍이", "멍멍");
+      const cat = new Animal("고양이", "야옹", "야옹");
+
+      dog.say();
+      dog.hi = function () {
+        //새로운 함수 정의를 바깥에서 선언가능.
+        console.log("hi");
+      };
+      dog.hi();
+    </script>
+  </body>
+</html>

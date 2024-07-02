@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(a1);
+      //console.log(let1);
+      //let -- 변수를 선언할 때 사용하는 예약어
+      //const -- 상수를 선언할 때 사용하는 예약어 태그선택할때 const사용한다
+
+      //ES6에서 var보다는 let , const를 사용하기를 권장하는 이유 ?
+      //1. var는 중복선언이 가능하다.
+      //2. var : 호이스팅 된다. (선언이 쓰려고하는 지점보다 밑에 있어도 쓰게해주는것 , 함수도 된다.)
+      //3. 변수의 scope - var 는 함수단위 , let 은 block단위
+      var a1 = 10;
+      var a1 = 20; //중복선언!! , 호이스팅가능
+      console.log(a1);
+
+      let let1 = 10;
+      //let let1 = 20; // 중복안됨. 호이스팅불가능
+
+      function varScopeTest() {
+        if (true) {
+          var varScope = 10;
+        }
+        console.log("varScope:::" + varScope); //함수스코프라 함수안에서는 쓸 수 있다.
+      }
+      varScopeTest();
+
+      function letScopeTest() {
+        if (true) {
+          let letScope = 10;
+        }
+        //console.log("letscope:::;" + letScope); //not defind : 블럭바깥에서 쓸 수 없다. if문 블럭 안에서만 사용가능하다. 블럭스코프
+      }
+      letScopeTest();
+
+      const sum = function () {
+        //함수를 변수안에 넣는건 호이스팅불가능.
+        // 함수 , 태그 정의하는건 const로 선언 (값이 안바뀌니까)
+        console.log("나는 sum()함수입니다");
+      };
+      sum();
+
+      let i = 10;
+      let ii = "10";
+      let iii = parseInt(ii);
+      console.log(i + iii);
+    </script>
+  </body>
+</html>

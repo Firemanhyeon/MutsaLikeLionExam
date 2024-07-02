@@ -1,0 +1,11 @@
+
+
+spring:
+  application:
+    name: friendexam
+
+  datasource:
+    url: jdbc:mysql://localhost/myDB
+    username: hohyeon
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver

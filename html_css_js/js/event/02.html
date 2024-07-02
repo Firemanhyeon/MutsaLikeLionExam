@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h2 id="number">0</h2>
+    <div>
+      <button id="increase">+1</button>
+      <button id="decrease">-1</button>
+    </div>
+
+    <script>
+      let btn1 = document.getElementById("increase");
+      let btn2 = document.getElementById("decrease");
+      let num = document.getElementById("number");
+      let cnt = 0;
+
+      btn1.addEventListener("click", function () {
+        cnt++;
+        let number = parseInt(num.innerText);
+        number++;
+        num.innerText = number;
+      });
+      btn2.addEventListener("click", function () {
+        cnt--;
+        let number = parseInt(num.innerText);
+        number--;
+        num.innerText = number;
+      });
+    </script>
+  </body>
+</html>

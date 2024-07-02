@@ -1,0 +1,65 @@
+/* @import "reset.css"; */
+* {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 1080px;
+  margin: 0 auto;
+  background-color: blanchedalmond;
+}
+header,
+section.main,
+footer {
+  margin: 0 auto;
+  background-color: cadetblue;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+header {
+  height: 90px;
+  width: 1080px;
+  margin-top: 10px;
+}
+header ul {
+  float: right;
+  margin-top: 20px;
+}
+header ul li {
+  display: inline-block;
+  width: 90px;
+  background-color: burlywood;
+  color: chocolate;
+  text-align: center;
+  border-radius: 100px;
+  padding: 10px;
+  box-shadow: 1px 2px 7px 1px gold;
+  margin-right: 20px;
+}
+
+section.main {
+  text-align: center;
+  position: relative;
+}
+
+section.main > * {
+  margin-bottom: 20px;
+}
+
+section.main h2 {
+  font-size: 2em;
+  margin-top: 20px;
+}
+footer {
+  text-align: center;
+  color: yellowgreen;
+  font-style: italic;
+}

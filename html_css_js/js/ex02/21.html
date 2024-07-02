@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function work(callback) {
+        setTimeout(() => {
+          //   const start = Date.now();
+          //   for (let i = 0; i < 1000000000; i++) {}
+          //   const end = Date.now();
+          //   console.log(end - start + "ms");
+          console.log("work.timeout 완료");
+          callback();
+        }, 0);
+      }
+      console.log("start");
+      //끝난다음에 뭔가를 처리하고싶으면 콜백함수로 싸서 인자로 보내야한다.
+      //그러고 setTimeOut 안에서 일처리가 끝나면 해당 함수를 호출해준다.
+      work(() => {
+        console.log("work real end");
+        console.log("end");
+      });
+    </script>
+  </body>
+</html>

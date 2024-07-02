@@ -1,0 +1,18 @@
+section.main > ul {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.portfolio {
+  margin-bottom: 10px;
+}
+section.main > ul > li:not(:last-child) {
+  margin-bottom: 40px;
+}
+header a {
+  color: inherit;
+}
+header a:hover {
+  color: yellow;
+}

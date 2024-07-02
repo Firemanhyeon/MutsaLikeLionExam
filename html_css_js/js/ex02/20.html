@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function work() {
+        setTimeout(() => {
+          console.log("work.timeout 완료");
+        }, 0);
+        console.log("work real end");
+      }
+      console.log("start");
+      work();
+      console.log("end");
+    </script>
+  </body>
+</html>

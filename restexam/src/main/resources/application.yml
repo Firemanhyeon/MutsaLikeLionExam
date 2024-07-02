@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: restexam
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/myDB
+    username: hohyeon
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true

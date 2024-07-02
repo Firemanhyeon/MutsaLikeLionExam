@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="UserPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+<!--        <class>com.example.jpa.User</class>  &lt;!&ndash; Add this line &ndash;&gt;-->
+
+<!--        <class>com.example.jpa.School</class>-->
+<!--        <class>com.example.jpa.Student</class>-->
+
+<!--        <class>com.example.jpa.Author</class>-->
+<!--        <class>com.example.jpa.Book</class>-->
+
+<!--        <class>com.example.jpa.Employee</class>-->
+<!--        <class>com.example.jpa.Project</class>-->
+
+        <class>com.example.jpa.Person</class>
+        <class>com.example.jpa.Passport</class>
+
+<!--        <class>com.example.jpa.Car</class>-->
+<!--        <class>com.example.jpa.Truck</class>-->
+
+<!--        <class>com.example.jpa.Car2</class>-->
+<!--        <class>com.example.jpa.Truck2</class>-->
+
+<!--        <class>com.example.jpa.Car3</class>-->
+<!--        <class>com.example.jpa.Truck3</class>-->
+
+<!--        <class>com.example.jpa.embeddadle.Company</class>-->
+
+<!--        <class>com.example.jpa.hrExam.Country</class>-->
+<!--        <class>com.example.jpa.hrExam.Region</class>-->
+
+
+
+        <properties>
+            <!--데이터소스 한테 알려줄 정보-->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/myDB"/>
+            <property name="jakarta.persistence.jdbc.user" value="hohyeon"/>
+            <property name="jakarta.persistence.jdbc.password" value="1234"/>
+
+            <!--하이버네이트 한테 알려줄 정보-->
+            <property name="hibernate.hbm2ddl.auto" value="create"/><!--DDL옵션. 테이블없으면 새로생성할건지 그런거 -->
+            <!--create 및 create-drop: 주로 개발 초기 설정 및 테스트 시 사용.
+                update: 개발 중 스키마 변경 사항을 반영할 때 사용.
+                validate: 프로덕션 환경에서 스키마 무결성을 확인할 때 사용.
+                none: 스키마를 수동으로 관리할 때 사용.
+            -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/><!-- 디비정보. 다른걸로 하면 다른db에맞는 쿼리문 알아서 바꿔서 넣어줌 -->
+            <property name="hibernate.show_sql" value="true"/><!-- 실행된 sql문 콘솔에 보여주기 -->
+            <property name="hibernate.format_sql" value="true"/><!-- 실행된 sql문 보기좋게 나오게할지. 한줄로나오게할지 -->
+        </properties>
+    </persistence-unit>
+</persistence>

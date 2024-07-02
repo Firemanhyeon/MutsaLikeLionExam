@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>FriendList</title>
+</head>
+<body>
+<h1>FriendList</h1>
+<table>
+    <tr>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>이메일</th>
+
+    </tr>
+    <tr th:each="friend : ${friendList}">
+        <td th:text="${friend.id}"></td>
+        <td th:text="${friend.name}"></td>
+        <td th:text="${friend.email}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

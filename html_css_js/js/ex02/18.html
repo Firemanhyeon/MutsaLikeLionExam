@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        name: "carami",
+        job: {
+          title: "student",
+          manager: {
+            name: "kang",
+          },
+        },
+      };
+      function printManagerName(person) {
+        console.log(person.job.manager.name);
+      }
+      printManagerName(person);
+
+      function printManagerName(person) {
+        console.log(
+          person && person.job && person.job.manager && person.job.manager.name
+        );
+      }
+      // ?. 객체의 속성에 접근할 때 해당 속성이 존재하는지 확인하고 존재한다면 해당 속성의 값을 반환합니다. 만약 속성이 존재하지 않는다면 undefined를 반환합니다.
+      function printManagerName(person) {
+        console.log(person?.job?.manager?.name);
+      }
+
+      const kang = { name: "강경미" };
+      printManagerName(kang);
+
+      const a = 1;
+      const b = 1;
+      console.log(a?.b);
+    </script>
+  </body>
+</html>

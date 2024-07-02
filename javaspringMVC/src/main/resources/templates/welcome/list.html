@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>ListExam</h1>
+<ul>
+    <li th:each="item , index : ${list}" th:if="${index.index>=0 and index.index<7}" th:text="${item}"></li>
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      hello();
+
+      //함수를 const변수에 담으면 호이스팅되지않는다 const라서
+      //func1();
+
+      //함수도 호이스팅이 가능하다.
+      function hello() {
+        console.log("hello");
+      }
+      //함수 중복 정의 가능.
+      //중복정의 되었을때는 가장 마지막에 정의된 함수가 실행된다.
+      function hello() {
+        console.log("hihi");
+      }
+
+      //상수 func1에 함수가 정의된것 함수가 일급객체이므로 가능하다.
+      //함수의 이름이 func1이 된것.
+      const func1 = function () {
+        console.log("func1호출");
+      };
+
+      func1();
+
+      //화살표함수
+      const func2 = () => console.log("func2호출");
+
+      func2();
+
+      function hi(a) {
+        console.log("hello" + a);
+      }
+      hi(10);
+      hi("hi");
+
+      //화살표함수에 매개변수가 한개 들어왔을땐 괄호()를 생략해도 된다. a가 매개변수인것
+      const hi2 = (a) => console.log("hello2" + a);
+
+      hi2(22);
+      hi2("aaa");
+
+      function sum(a, b) {
+        return a + b;
+      }
+      const sum1 = function (a, b) {
+        return a + b;
+      };
+      //화살표함수는 return도 생략 가능하다.
+      const sum2 = (a, b) => a + b;
+
+      console.log(sum(1, 2));
+      console.log(sum1(1, 6));
+      console.log(sum2(3, 4));
+
+      //예제 함수선언을 3가지형태로 구현하기
+
+      function minus(a, b) {
+        return a - b;
+      }
+      const minus1 = function (a, b) {
+        return a - b;
+      };
+      const minus2 = (a, b) => a - b;
+
+      console.log(minus(3, 1));
+      console.log(minus1(4, 1));
+      console.log(minus2(5, 1));
+    </script>
+  </body>
+</html>

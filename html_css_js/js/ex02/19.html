@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //비동기통신
+      function work() {
+        const start = Date.now();
+        for (let i = 0; i < 1000000000; i++) {}
+        const end = Date.now();
+        console.log(end - start + "ms");
+      }
+      work();
+      console.log("다음작업");
+
+      function hi() {
+        console.log("hello~");
+      }
+
+      //0초라고 하더라도 스택에 쌓여있는 모든 할일들을 다 하고나서 스택에 이벤트루프를 통해 이동하기때문에 밑 콘솔이 다 끝나야 hi함수 실행된다.
+      setTimeout(hi, 0);
+
+      console.log("다음할말");
+    </script>
+  </body>
+</html>

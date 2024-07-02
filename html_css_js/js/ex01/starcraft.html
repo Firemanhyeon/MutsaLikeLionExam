@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>스타크래프트</title>
+    <style>
+      .background {
+        position: relative;
+        background-image: url("background.png");
+        background-size: 500px 330px;
+        width: 500px;
+        height: 330px;
+      }
+      #drone {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 60px;
+      }
+      #bunker {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        top: 80px;
+        right: 20px;
+      }
+      #spit {
+        display: none;
+        position: absolute;
+        top: 140px;
+        left: 150px;
+        width: 50px;
+        height: 30px;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test"></div>
+    <div class="background">
+      <img id="drone" src="drone.png" alt="drone" />
+      <img id="spit" src="spit.png" alt="spit" />
+      <img id="bunker" src="bunker.png" alt="bunker" />
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let hp = 3;
+      let a = document.getElementById("test");
+      a.innerHTML = "<h2>" + "hp:" + hp + "</h2>";
+      $("#drone").click(function () {
+        hp--;
+        if (hp == 0) {
+          $("#bunker").hide();
+          let a = document.getElementById("test");
+          a.innerHTML = "<h2>" + "hp:" + hp + "</h2>";
+        } else if (hp < 0) {
+          $("#bunker").show();
+          hp = 3;
+          let a = document.getElementById("test");
+          a.innerHTML = "<h2>" + "hp:" + hp + "</h2>";
+        } else {
+          let a = document.getElementById("test");
+          a.innerHTML = "<h2>" + "hp:" + hp + "</h2>";
+          $("#spit")
+            .show()
+            .animate(
+              {
+                left: "+=200", // 버킷으로 이동
+              },
+              2000,
+              function () {
+                $(this).hide().css({ left: "150px", top: "140px" }); // 침 숨기고 초기 위치로 이동
+              }
+            );
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //sleep메소드 다음 나오는 콘솔을 sleep함수실행후에 실행하고싶다.
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      async function process() {
+        console.log("안녕하세요");
+        await sleep(3000);
+        console.log("반갑습니다");
+      }
+
+      //   function process(){ //async await 쓰지않고 하는방법
+      //     console.log('안녕하세요');
+      //     sleep(3000).then(()=>{
+      //         console.log("반갑습니다");
+      //     })
+      //   }
+
+      async function aaa() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("work.timeout 완료");
+            resolve();
+          }, 1000);
+        });
+      }
+      aaa().then(() => {
+        console.log("aaa");
+      });
+
+      console.log("process호출전");
+      process();
+      console.log("process호출후");
+    </script>
+  </body>
+</html>

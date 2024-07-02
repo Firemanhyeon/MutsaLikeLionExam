@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .todo-list-template {
+        background: white;
+        width: 512px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin: 0 auto;
+        margin-top: 4rem;
+      }
+      .title {
+        padding: 2rem;
+        font-size: 2.5rem;
+        text-align: center;
+        font-weight: 100;
+        background: #22b8cf;
+        color: white;
+      }
+      .form-wrapper {
+        padding: 1rem;
+        border-bottom: 1px solid #22b8cf;
+      }
+      .todos-wrapper {
+        min-height: 5rem;
+      }
+      .form {
+        display: flex;
+      }
+
+      .form input {
+        flex: 1;
+        font-size: 1.25rem;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #c5f6fa;
+      }
+      .add-button {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: 1rem;
+        background: #22b8cf;
+        border-radius: 3px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .add-button:hover {
+        background: #3bc9db;
+      }
+      li {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        cursor: pointer;
+        user-select: none;
+      }
+      li:hover {
+        background-color: #3bc9db;
+      }
+
+      .remove {
+        margin-right: 1rem;
+        color: #e64980;
+        font-weight: 600;
+        opacity: 0;
+      }
+
+      .todo-text {
+        flex: 1; /* 체크, 엑스를 제외한 공간 다 채우기 */
+        word-break: break-all;
+      }
+
+      .checked {
+        text-decoration: line-through;
+        color: #adb5bd;
+      }
+
+      .check-mark {
+        font-size: 1.5rem;
+        line-height: 1rem;
+        margin-left: 1rem;
+        color: #3bc9db;
+        font-weight: 800;
+      }
+
+      .close {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo-list-template">
+      <h2 class="title">My To Do</h2>
+      <div class="form-wrapper">
+        <form action="#" class="form">
+          <input type="text" placeholder="할일.." id="textInput" />
+          <button type="submit" class="add-button">추가</button>
+        </form>
+      </div>
+      <div id="todo-item-list">
+        <ul class="todo-item"></ul>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let basicDatas = [
+      { id: 1, title: "Todo 1", done: false },
+      { id: 2, title: "Todo 2", done: true },
+    ];
+
+    //데이터에있는 li요소 불러오기
+    let ulTag = document.querySelector("ul");
+    for (let i = 0; i < basicDatas.length; i++) {
+      let liTag = document.createElement("li");
+      let text = document.createTextNode(basicDatas[i].title);
+      let divTag = document.createElement("div");
+      liTag.appendChild(text);
+      divTag.appendChild(liTag);
+      ulTag.appendChild(divTag);
+      if (basicDatas[i].done == true) {
+        let liElements = ulTag.querySelectorAll("li");
+        liElements[i].classList.add("checked");
+      }
+      let spanTag = document.createElement("SPAN");
+      spanTag.className = "close";
+      let xTag = document.createTextNode("x");
+      spanTag.className = "close";
+      spanTag.appendChild(xTag);
+      liTag.appendChild(spanTag);
+    }
+
+    //추가버튼클릭
+    let addBtn = document.querySelector("button");
+    addBtn.addEventListener("click", function (el) {
+      let inputText = document.getElementById("textInput").value;
+      if (inputText.length == 0) {
+        alert("빈값입니다");
+        return;
+      }
+      let newLiTag = document.createElement("li");
+      let text = document.createTextNode(inputText);
+      let divTag = document.createElement("div");
+      newLiTag.appendChild(text);
+      newLiTag.className = "todo-item-list";
+      divTag.appendChild(newLiTag);
+      ulTag.appendChild(divTag);
+
+      let spanTag = document.createElement("SPAN");
+      spanTag.className = "close";
+      let xTag = document.createTextNode("x");
+      spanTag.className = "close";
+      spanTag.appendChild(xTag);
+      newLiTag.appendChild(spanTag);
+
+      basicDatas.push({
+        id: basicDatas.length + 1,
+        title: inputText,
+        done: false,
+      });
+      document.getElementById("textInput").value = "";
+
+      //x버튼 클릭
+      let clickXBtn = document.getElementsByClassName("close");
+      for (let i = 0; i < clickXBtn.length; i++) {
+        clickXBtn[i].addEventListener("click", function (el) {
+          let target = el.target.parentNode;
+          target.style.display = "none";
+        });
+      }
+      console.log(basicDatas);
+    });
+
+    //엔터키
+    addBtn.addEventListener("keydown", function (el) {
+      let inputText = document.getElementById("textInput").value;
+      if (inputText.length == 0) {
+        alert("빈값입니다");
+        return;
+      }
+      let newLiTag = document.createElement("li");
+      let text = document.createTextNode(inputText);
+      let divTag = document.createElement("div");
+      newLiTag.appendChild(text);
+      newLiTag.className = "todo-item-list";
+      divTag.appendChild(newLiTag);
+      ulTag.appendChild(divTag);
+
+      let spanTag = document.createElement("SPAN");
+      spanTag.className = "close";
+      let xTag = document.createTextNode("x");
+      spanTag.className = "close";
+      spanTag.appendChild(xTag);
+      newLiTag.appendChild(spanTag);
+
+      basicDatas.push({
+        id: basicDatas.length + 1,
+        title: inputText,
+        done: false,
+      });
+      document.getElementById("textInput").value = "";
+
+      let clickXBtn = document.getElementsByClassName("close");
+      for (let i = 0; i < clickXBtn.length; i++) {
+        clickXBtn[i].addEventListener("click", function (el) {
+          let target = el.target.parentNode;
+          target.style.display = "none";
+        });
+      }
+      console.log(basicDatas);
+    });
+
+    //li요소 클릭
+    let liTags = document.querySelector("ul");
+    liTags.addEventListener("click", function (el) {
+      let checked = el.target;
+      let content = checked.textContent;
+      console.log(checked);
+
+      if (checked.className === "checked") {
+        console.log("체크되어있음");
+
+        checked.className = "";
+        console.log(basicDatas[0].title + "x");
+        console.log(content);
+        for (let i = 0; i < basicDatas.length; i++) {
+          console.log("for문");
+          if (basicDatas[i].title.trim() + "x" == content) {
+            basicDatas[i].done = false;
+            console.log("done = false로 변경");
+          }
+        }
+      } else {
+        console.log("체크되어있지않음");
+        checked.className = "checked";
+        for (let i = 0; i < basicDatas.length; i++) {
+          console.log("for문");
+          if (basicDatas[i].title + "x" == content) {
+            basicDatas[i].done = true;
+            console.log("done = true로 변경");
+          }
+        }
+      }
+      console.log(basicDatas);
+    });
+
+    //x버튼 클릭
+    let clickXBtn = document.getElementsByClassName("close");
+    for (let i = 0; i < clickXBtn.length; i++) {
+      clickXBtn[i].addEventListener("click", function (el) {
+        let target = el.target.parentNode;
+        target.style.display = "none";
+      });
+    }
+  </script>
+</html>

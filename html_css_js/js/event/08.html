@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>할일1</li>
+      <li>할일2</li>
+      <li>할일3</li>
+      <li>할일4</li>
+      <li>할일5</li>
+    </ul>
+    <label for="todo">할일을 입력하세요</label>
+    <input type="text" id="todo-value" />
+    <button id="todoBtn">할일입력</button>
+    <script>
+      let btn = document.getElementById("todoBtn");
+
+      btn.addEventListener("click", function () {
+        let todo = document.getElementById("todo-value");
+        let ulTag = document.getElementsByTagName("ul")[0];
+
+        let liTag = document.createElement("li");
+        let text = document.createTextNode(todo.value);
+        liTag.appendChild(text);
+        ulTag.appendChild(liTag);
+        todo.value = "";
+      });
+
+      let liClick = document.querySelector("ul");
+
+      liClick.addEventListener("click", (el) => {
+        console.log(el);
+        let text = el.target.innerHTML;
+        let todo = document.getElementById("todo-value");
+        todo.value = text;
+      });
+    </script>
+  </body>
+</html>

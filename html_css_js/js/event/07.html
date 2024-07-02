@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="06.html" method="get">
+      <div>이름: <input type="text" name="name" id="name" /></div>
+
+      <div>
+        비밀번호: <input type="password" name="password" id="password" />
+      </div>
+
+      <div>
+        비밀번호확인:
+        <input type="password" name="checkpassword" id="checkpassword" />
+      </div>
+
+      <input type="submit" value="등록" />
+    </form>
+    <script>
+      //이름은 잘입력했는지 체크
+      //비밀번호 두개가 일치하는지 체크
+
+      let form = document.getElementsByTagName("form")[0];
+      let sub = document.querySelector('input[type="submit"]');
+
+      form.addEventListener("submit", function (el) {
+        el.preventDefault();
+        let name = document.getElementById("name").value;
+        let pw = document.getElementById("password").value;
+        let pwcheck = document.getElementById("checkpassword").value;
+        if (name.length == "") {
+          alert("아이디를 입력해주세요");
+        } else if (pw == "") {
+          alert("패스워드를 입력해주세요");
+        } else if (pwcheck == "") {
+          alert("패스워드확인을 입력해주세요");
+        } else if (pw != pwcheck) {
+          alert("패스워드와 확인이 맞지않습니다");
+        } else {
+          alert("로그인성공");
+          form.submit();
+        }
+      });
+      //submit -- 이벤트이름
+      //input요소.value --input상자값을 꺼낼 수 있다.
+    </script>
+  </body>
+</html>

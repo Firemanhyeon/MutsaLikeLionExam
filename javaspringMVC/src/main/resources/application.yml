@@ -1,0 +1,20 @@
+spring:
+  application:
+     name: springmvc
+
+  messages:
+    basename: messages
+    encoding: UTF-8
+    cache-duration: 0
+  datasource:
+    url: jdbc:mysql://localhost/myDB
+    username: hohyeon
+    password: 1234
+    driver-class-name : com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+

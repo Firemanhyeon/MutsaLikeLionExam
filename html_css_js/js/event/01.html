@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">버튼</button>
+
+    <script>
+      //event
+      //소스(대상)-이벤트리스너 (이벤트이름(ex click), 이벤트핸들러(함수)  , [ToCapture](default값 false))
+
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        alert("hi");
+      });
+    </script>
+  </body>
+</html>
