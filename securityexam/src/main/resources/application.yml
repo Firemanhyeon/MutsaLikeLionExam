@@ -2,6 +2,7 @@ spring:
   application:
     name: securityexam
 
+
   security:
     oauth2:
       client:
