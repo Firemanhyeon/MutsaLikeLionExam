@@ -40,8 +40,8 @@ public class SecurityConfig {
                         .maxSessionsPreventsLogin(true)//동시 로그인을 차단한다 default = false (먼저 로그인한 사용자를 차단한다)
                         //true - 애초에 허용개수를 초과하는 사용자는 로그인이 안되도록 차단.
                 )
-                .csrf(csrf-> csrf.disable());
-                //.userDetailsService(customUserDetailsService);
+                .csrf(csrf-> csrf.disable())
+                .userDetailsService(customUserDetailsService);
 
         return http.build();
     }

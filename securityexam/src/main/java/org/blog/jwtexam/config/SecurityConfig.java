@@ -53,6 +53,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
     public CorsConfigurationSource corsConfigurationSource(){
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
