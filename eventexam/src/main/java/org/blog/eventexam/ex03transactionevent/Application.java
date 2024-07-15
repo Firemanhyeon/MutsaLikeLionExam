@@ -17,7 +17,7 @@ public class Application {
     @Bean
     public CommandLineRunner run(){
         return args -> {
-            itemService.registerItem("note",2000);
+            itemService.registerItem("nyote",2000);
         };
     }
 }
