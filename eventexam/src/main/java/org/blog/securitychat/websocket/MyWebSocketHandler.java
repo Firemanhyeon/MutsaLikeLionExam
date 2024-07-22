@@ -47,11 +47,11 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
         //저장소에 전체로 보내야함
         //synchronized : 동기화
         //synchronized (sessions){
-            for(WebSocketSession webSocketSession : sessions){
-                if(webSocketSession.isOpen()){
-                    webSocketSession.sendMessage(new TextMessage(usernames+": "+payload));
-                }
+        for(WebSocketSession webSocketSession : sessions){
+            if(webSocketSession.isOpen()){
+                webSocketSession.sendMessage(new TextMessage(usernames+": "+payload));
             }
+        }
         //}
     }
 

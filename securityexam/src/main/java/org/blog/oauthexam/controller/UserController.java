@@ -61,7 +61,6 @@ public class UserController {
     @GetMapping("/registerSocialUser")
     public String registerSocialUser(@RequestParam("provider") String provider , @RequestParam("socialId") String socialId
             , @RequestParam("name") String name , @RequestParam("uuid") String uuid , Model model){
-        System.out.println("registerCOntorller");
         model.addAttribute("provider" , provider);
         model.addAttribute("socialId" , socialId);
         model.addAttribute("name" , name);
